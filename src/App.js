@@ -1,14 +1,19 @@
+import { useState } from 'react';
 import './App.css';
 import HelloWorld from './components/HelloWorld';
+import UserDigit from './components/UserDIgit';
 
 
 function App() {
-  const name = "Matheus";
-  const newName = name.toUpperCase();
+  let [texto, setTexto] = useState("");
+  const captarDado = (texto) => {
+    setTexto(texto);
+  }
   return (
     <div className='App'>
-      <HelloWorld name="Matheus" />
-      <p>Este é um parágrafo de {newName}</p>
+      <UserDigit onEnviarDados={captarDado}/>
+      <HelloWorld name={texto} />
+      <p>Este é um parágrafo de {texto}</p>
     </div>
   );
 }
